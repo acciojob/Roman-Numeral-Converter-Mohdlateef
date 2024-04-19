@@ -1,5 +1,10 @@
-function convertToRoman(num) {
-  	const obj = {
+
+
+  //your code here
+
+
+	function convertToRoman(num) {
+      const obj = {
       0:['M',1000], 
       1:['D', 500], 
       2:['C', 100], 
@@ -9,7 +14,19 @@ function convertToRoman(num) {
       6:['I', 1]
     };
 
-  //your code here
+    let romanNumeral = '';
+    for (let i = 0; i < 4; i++) {
+        const currentValue = Math.floor(num / (2 ** i));
+        romanNumeral += obj[currentValue][0].repeat(currentValue);
+        num %= 2 ** i;
+    }
+    return romanNumeral;
+}
+
+const userInput = 140;
+const result = convertToRoman(userInput);
+alert(result);
+console.log(`The Roman numeral for ${userInput} is ${result}.`);
 
 }
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
